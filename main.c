@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 		if (feof(fp))
 			break;
 	}
+	free(st);
 	fclose(fp);
 	return (0);
 }
