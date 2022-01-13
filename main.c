@@ -1,15 +1,22 @@
-#include "header.h"
+#include "monty.h"
+/**
+ * main - main
+ * @argc: argc
+ * @argv: argv 
+ * Return: int 
+ */
 int main(int argc, char* argv[])
 {
 	FILE *fp;
 	char *s = NULL;
 	size_t line_buf_size = 0;
 	char *token;
-	char fn[3] = ("push", "pall", NULL);
+	instruction_t fun;
 	int i = 0;
 
 	printf("%d\n", argc);
 	fp = fopen(argv[1],"r");
+	
 	while(1) 
 	{
 		getline(&s, &line_buf_size, fp);
@@ -19,10 +26,10 @@ int main(int argc, char* argv[])
 			}
 		token = strtok(s, " ");
 		i = 0;
-		while (fn[i] != token)
+		while (fun != token)
 		{
 			i++;
-		}	
+		}
 		token = strtok(NULL, " ");
 		if (token != NULL)
 		{
