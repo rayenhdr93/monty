@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 	size_t line_buf_size = 0;
 	char *token;
 	stack_t *st = NULL;
+	stack_t *tmp = NULL;
 	instruction_t st_fn[] = {{"push", push},
 								{"pall", pall},
 								{NULL, NULL}};
@@ -40,7 +41,13 @@ int main(int argc, char *argv[])
 		if (feof(fp))
 			break;
 	}
-	free(st);
+	free(s);
+	while (st)
+	{
+		tmp = st->next;
+		free(st);
+		st = tmp;
+	}
 	fclose(fp);
 	return (0);
 }
