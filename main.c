@@ -19,9 +19,7 @@ int main(int argc, char *argv[])
 	int i = 0;
 
 	if (argc != 2)
-	{
 		exit(0);
-	}
 	fp = fopen(argv[1], "r");
 	while (1)
 	{
@@ -35,9 +33,7 @@ int main(int argc, char *argv[])
 		else
 			token = "5";
 		if (st_fn[i].opcode != NULL)
-		{
 			st_fn[i].f(&st, atoi(token));
-		}
 		if (feof(fp))
 			break;
 	}
