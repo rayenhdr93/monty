@@ -1,11 +1,11 @@
- #include "monty.h"
+#include "monty.h"
 /**
  * main - main
  * @argc: argc
- * @argv: argv 
- * Return: int 
- */
-int main(int argc, char* argv[])
+ * @argv: argv
+ * Return: int
+**/
+int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char *s = NULL;
@@ -17,29 +17,24 @@ int main(int argc, char* argv[])
 								{NULL, NULL}};
 	int i = 0;
 
-	if(argc != 2)
+	if (argc != 2)
 	{
 		exit(0);
 	}
-	fp = fopen(argv[1],"r");
-	
-	while(1) 
+	fp = fopen(argv[1], "r");
+	while (1)
 	{
 		getline(&s, &line_buf_size, fp);
 		if (feof(fp))
-			{
-				break ;
-			}
+			break;
 		token = strtok(s, " ");
 		i = 0;
 		while ((strcmp(st_fn[i].opcode, token) != 0) && (st_fn[i].opcode != NULL))
-		{
 			i++;
-		}
 		if (token != NULL)
-		{
 			token = strtok(NULL, " ");
-		}
+		else
+			token = "5";
 		if (st_fn[i].opcode != NULL)
 		{
 			st_fn[i].f(&st, atoi(token));

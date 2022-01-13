@@ -1,9 +1,8 @@
 #include "monty.h"
 /**
 * push -Insert new node at the beginning of the stack
-* @top:is the pointer to the head of stack
+* @top:rints all the values on the stack, starting from the top of the stack
 * @line_num: file's line number
-* @n: the data integer
 * Return: nothing
 */
 void push(stack_t **top, unsigned int line_num)
@@ -13,7 +12,7 @@ void push(stack_t **top, unsigned int line_num)
 	if (top == NULL)
 	{
 	fprintf(stderr, "L%i: usage: push integer,\n", line_num);
- 	exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 	}
 
 	new = malloc(sizeof(stack_t));
