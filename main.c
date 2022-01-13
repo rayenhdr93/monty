@@ -1,4 +1,4 @@
-#include "monty.h"
+ #include "monty.h"
 /**
  * main - main
  * @argc: argc
@@ -11,10 +11,16 @@ int main(int argc, char* argv[])
 	char *s = NULL;
 	size_t line_buf_size = 0;
 	char *token;
-	instruction_t fun;
+	stack_t *st = NULL;
+	instruction_t st_fn[] = {{"push", push},
+								{"pall", pall},
+								{NULL, NULL}};
 	int i = 0;
 
-	printf("%d\n", argc);
+	if(argc != 2)
+	{
+		exit(0);
+	}
 	fp = fopen(argv[1],"r");
 	
 	while(1) 
@@ -26,14 +32,17 @@ int main(int argc, char* argv[])
 			}
 		token = strtok(s, " ");
 		i = 0;
-		while (fun != token)
+		while ((strcmp(st_fn[i].opcode, token) != 0) && (st_fn[i].opcode != NULL))
 		{
 			i++;
 		}
-		token = strtok(NULL, " ");
 		if (token != NULL)
 		{
 			token = strtok(NULL, " ");
+		}
+		if (st_fn[i].opcode != NULL)
+		{
+			st_fn[i].f(&st, atoi(token));
 		}
 	}
 	fclose(fp);

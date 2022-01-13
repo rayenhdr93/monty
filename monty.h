@@ -32,7 +32,9 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-void push(stack_t **top,int line_num, int n);
-void pall(stack_t *stack);
+void push(stack_t **top,unsigned int line_num);
+
+void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 char *_itoa(int n);
+stack_t *add_fun(stack_t **head, const int n);
 #endif

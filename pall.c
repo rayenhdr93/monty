@@ -1,17 +1,18 @@
 #include "monty.h"
-
 /*
 *
 */
-
-void pall(stack_t *stack)
+void pall(stack_t **stack, 
+unsigned int __attribute__((unused)) line_number)
 {
+	stack_t *tmp;
+	tmp = *stack;
 	if (stack == NULL)
 		return;
-
-	while (stack != NULL)
+	printf("%d\n", tmp->n);
+	while (tmp->next)
 	{
-	printf("%d\n", stack->n);
-	stack = stack->next;
+		tmp = tmp->next;
+		printf("%d\n", tmp->n);
 	}
 }
