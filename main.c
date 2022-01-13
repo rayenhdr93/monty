@@ -25,8 +25,6 @@ int main(int argc, char *argv[])
 	while (1)
 	{
 		getline(&s, &line_buf_size, fp);
-		if (feof(fp))
-			break;
 		token = strtok(s, " ");
 		i = 0;
 		while ((strcmp(st_fn[i].opcode, token) != 0) && (st_fn[i].opcode != NULL))
@@ -39,6 +37,8 @@ int main(int argc, char *argv[])
 		{
 			st_fn[i].f(&st, atoi(token));
 		}
+		if (feof(fp))
+			break;
 	}
 	fclose(fp);
 	return (0);
