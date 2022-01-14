@@ -21,13 +21,13 @@ int main(int argc, char *argv[])
 
 	if (argc != 2) 
 		{
-			fprintf(stderr, "USAGE:monty file\n");
+			fprintf(stderr, "USAGE: monty file\n");
 			exit(EXIT_FAILURE);
 		}
 	fp = fopen(argv[1], "r");
 	if (!fp)
 		{
-			fprintf(stderr, "Error:can't open file %s\n", argv[1]);
+			fprintf(stderr, "Error: can't open file %s\n", argv[1]);
 			exit(EXIT_FAILURE);
 		}
 	while (!feof(fp))
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 		sa = toke1(s);
 		if ((sx == 6666 && strcmp(sa, st_fn[0].opcode) == 0))
 		{
-			fprintf(stderr, "L%i:usage:push integer\n", j);
+			fprintf(stderr, "L%i: usage: push integer\n", j);
 			free_z(st);
 			free(s);
 			exit(EXIT_FAILURE);
