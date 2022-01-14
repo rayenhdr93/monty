@@ -9,13 +9,13 @@ void push(stack_t **top, unsigned int line_num)
 {
 	stack_t *new;
 
-	if (top == NULL)
-	{
-	fprintf(stderr, "L%i: usage: push integer,\n", line_num);
-	exit(EXIT_FAILURE);
-	}
-
 	new = malloc(sizeof(stack_t));
+	if (!new)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		free_z(*top);
+		exit(EXIT_FAILURE);
+	}
 	if (new == NULL)
 		exit(EXIT_FAILURE);
 	new->n = line_num;

@@ -38,5 +38,6 @@ void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 char *_itoa(int n);
 stack_t *add_fun(stack_t **head, const int n);
 char *toke1(char *s);
+void free_z (stack_t *st);
 int toke2(char *s);
 #endif
