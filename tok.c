@@ -25,13 +25,14 @@ char *toke1(char *s)
 int toke2(char *s)
 {
 	size_t i = 0;
-	int x = 0, found = 0;
+	int x = 0, found = 0, j = 1;
 
 	while (i < strlen(s))
 	{
 		if ((s[i] >= 48) && (s[i] <= 57))
 		{
-			x = x + (s[i] - 48);
+			x = (x * j) + (s[i] - 48);
+			j *= 10;
 			found = 1;
 		}
 		i++;

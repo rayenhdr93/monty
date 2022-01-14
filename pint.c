@@ -5,12 +5,16 @@
 *@line_number: file's line number
 *Return : nothing
 **/
-void pint(stack_t **stack, unsigned int __attribute__((unused)) line_number)
+void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
 	tmp = *stack;
 	if (*stack == NULL)
-		return;
+    {
+        fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
+        free_z(*stack);
+		exit(EXIT_FAILURE);
+    }
 	printf("%d\n", tmp->n);
 }

@@ -58,6 +58,8 @@ int main(int argc, char *argv[])
 			free(s);
 			exit(EXIT_FAILURE);
 		}
+		if (i > 0)
+			sx = j;
 		st_fn[i].f(&st, sx);
 		if (feof(fp))
 			break;
