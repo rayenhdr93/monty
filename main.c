@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	char *s = NULL;
 	size_t line_buf_size = 0;
 	char *sa = NULL;
-	int sx = 0, i = 0, j = 0, x = 0;
+	int sx = 0, i = 0, j = 0, x = 1;
 	stack_t *st = NULL;
 	instruction_t st_fn[] = {{"push", push},
 								{"pall", pall},
@@ -30,13 +30,13 @@ int main(int argc, char *argv[])
 		}
 	while (1)
 	{
-		j++;
+		x = 1;
 		i = 0;
-		if (feof(fp))
-			break;
-		x = getline(&s, &line_buf_size, fp);
-		if (x  < 2)
-			break;
+		while (x == 1)
+		{
+			x = getline(&s, &line_buf_size, fp);
+			j++;
+		}
 		sx = toke2(s);
 		sa = toke1(s);
 		if ((sx == 6666 && strcmp(sa, st_fn[0].opcode) == 0))
@@ -58,6 +58,8 @@ int main(int argc, char *argv[])
 			exit(EXIT_FAILURE);
 		}
 		st_fn[i].f(&st, sx);
+		if (feof(fp))
+			break;
 	}
 	free_z(st);
 	free(s);
