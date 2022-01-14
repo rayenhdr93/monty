@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 	instruction_t st_fn[] = {{"push", push},
 								{"pall", pall},
 								{"pint", pint},
+								{"pop", pop},
 								{NULL, NULL}};
 
 	if (argc != 2) 
