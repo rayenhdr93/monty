@@ -20,7 +20,10 @@ int main(int argc, char *argv[])
 	instruction_t *p = st_fn;
 
 	if (argc != 2) 
-		exit(0);
+		{
+			fprintf(stderr, "USAGE: monty file");
+			exit(EXIT_FAILURE);
+		}
 	fp = fopen(argv[1], "r");
 	while (1)
 	{
