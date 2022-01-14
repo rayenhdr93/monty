@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 		}
 		if (!(st_fn[i].opcode))
 		{
-			fprintf(stderr, "L%d:unknown instruction %s\n", j, sa);
+			fprintf(stderr, "L%d: unknown instruction %s\n", j, sa);
 			free_z(st);
 			free(s);
 			exit(EXIT_FAILURE);
