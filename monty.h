@@ -2,8 +2,8 @@
 #define header_h
 #define _GNU_SOURCE
 #include <stdlib.h>
-#include "stdio.h"
-#include "string.h"
+#include <stdio.h>
+#include <string.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -37,4 +37,6 @@ void push(stack_t **top,unsigned int line_num);
 void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 char *_itoa(int n);
 stack_t *add_fun(stack_t **head, const int n);
+char *toke1(char *s);
+int toke2(char *s);
 #endif

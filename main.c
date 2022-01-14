@@ -10,40 +10,39 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	char *s = NULL;
 	size_t line_buf_size = 0;
-	char *token;
+	char *sa = NULL;
+	int sx = 0;
 	stack_t *st = NULL;
 	stack_t *tmp = NULL;
 	instruction_t st_fn[] = {{"push", push},
 								{"pall", pall},
 								{NULL, NULL}};
-	int i = 0;
+	instruction_t *p = st_fn;
 
-	if (argc != 2)
+	if (argc != 2) 
 		exit(0);
 	fp = fopen(argv[1], "r");
 	while (1)
 	{
-		getline(&s, &line_buf_size, fp);
-		token = strtok(s, " ");
-		i = 0;
-		while ((strcmp(st_fn[i].opcode, token) != 0) && (st_fn[i].opcode != NULL))
-			i++;
-		if (token != NULL)
-			token = strtok(NULL, " ");
-		else
-			token = "5";
-		if (st_fn[i].opcode != NULL)
-			st_fn[i].f(&st, atoi(token));
 		if (feof(fp))
 			break;
+		getline(&s, &line_buf_size, fp);
+		sx = toke2(s);
+		sa = toke1(s);
+		while ((strcmp(p->opcode, sa) != 0) && (p->opcode != NULL))
+			p++;
+		if (strcmp(p->opcode, "push") == 0)
+			p->f(&st, sx);
+		else
+			p->f(&st, 0);
 	}
-	free(s);
 	while (st)
 	{
 		tmp = st->next;
 		free(st);
 		st = tmp;
 	}
+	free(s);
 	fclose(fp);
 	return (0);
 }
