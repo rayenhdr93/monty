@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 			fprintf(stderr, "Error:can't open file %s\n", argv[1]);
 			exit(EXIT_FAILURE);
 		}
-	while (1)
+	while (!feof(fp))
 	{
 		x = 1;
 		i = 0;
@@ -39,6 +39,8 @@ int main(int argc, char *argv[])
 			x = getline(&s, &line_buf_size, fp);
 			j++;
 		}
+		if (x < 0)
+			break;
 		sx = toke2(s);
 		sa = toke1(s);
 		if ((sx == 6666 && strcmp(sa, st_fn[0].opcode) == 0))
@@ -62,8 +64,6 @@ int main(int argc, char *argv[])
 		if (i > 0)
 			sx = j;
 		st_fn[i].f(&st, sx);
-		if (feof(fp))
-			break;
 	}
 	free_z(st);
 	free(s);
