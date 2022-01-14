@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	char *s = NULL;
 	size_t line_buf_size = 0;
 	char *sa = NULL;
-	int sx = 0, i = 0, j = 0, x = 1;
+	int sx = 0, i = 0, j = 0, x = 1, pritned = 0;
 	stack_t *st = NULL;
 	instruction_t st_fn[] = {{"push", push},
 								{"pall", pall},
@@ -61,9 +61,13 @@ int main(int argc, char *argv[])
 		if (i > 0)
 			sx = j;
 		st_fn[i].f(&st, sx);
+		if (i > 0 && i < 3)
+			pritned = 1;
 		if (feof(fp))
 			break;
 	}
+	if (pritned == 1)
+		printf("0\n");
 	free_z(st);
 	free(s);
 	fclose(fp);
