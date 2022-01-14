@@ -24,20 +24,21 @@ char *toke1(char *s)
 }
 int toke2(char *s)
 {
-	size_t i = 0;
-	int x = 0, found = 0, j = 1;
+	size_t i = 0, j = 0;
+	int found = 0;
+	char s1[48];
 
 	while (i < strlen(s))
 	{
 		if ((s[i] >= 48) && (s[i] <= 57))
 		{
-			x = (x * j) + (s[i] - 48);
-			j *= 10;
 			found = 1;
+			s1[j] = s[i];
+			j++;
 		}
 		i++;
 	}
 	if (found == 1)
-		return(x);
+		return(atoi(s1));
 	return(6666);
 }
