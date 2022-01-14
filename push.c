@@ -12,7 +12,7 @@ void push(stack_t **top, unsigned int line_num)
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
-		fprintf(stderr, "Error:malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		free_z(*top);
 		exit(EXIT_FAILURE);
 	}
