@@ -16,5 +16,5 @@ void pint(stack_t **stack, unsigned int line_number)
         free_z(*stack);
 		exit(EXIT_FAILURE);
     }
-	printf("%d\n", tmp->n);
+	fprintf(stdout,"%d\n", tmp->n);
 }
