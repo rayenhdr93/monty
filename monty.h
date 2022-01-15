@@ -41,6 +41,7 @@ void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void divvv(stack_t **stack, unsigned int line_number);
 void mult(stack_t **stack, unsigned int line_number);
+void modt(stack_t **stack, unsigned int line_number)
 void nop(stack_t **stack, unsigned int line_number);
 char *_itoa(int n);
 stack_t *add_fun(stack_t **head, const int n);
