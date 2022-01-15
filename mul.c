@@ -5,21 +5,20 @@
 *@line_number: file's line number
 *Return : nothing
 **/
-void divvv(stack_t **stack, unsigned int line_number)
+void mult(stack_t **stack, unsigned int line_number)
 {
+    int x = 0;
 	stack_t *tmp = NULL;
 
 	if (!((*stack) && (*stack)->next))
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		free_z(*stack);
 		exit(EXIT_FAILURE);
 	}
+    x += (*stack)->n;
 	tmp = (*stack)->next;
-	if ((tmp->n == 0) || ((*stack)->n == 0))
-    { 
-        fprintf(stderr, "L%d: division by zero\n", line_number);
-		free_z(*stack);
-		exit(EXIT_FAILURE);
-    }
+	free(*stack);
+    (*stack) = tmp;
+	(*stack)->prev = NULL;
 }
