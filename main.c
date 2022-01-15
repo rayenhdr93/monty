@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 								{"sub", sub},
 								{"div", divvv},
 								{"mul", mult},
-								{"mod", modt},
+								{"mod", modd},
 								{NULL, NULL}};
 
 	if (argc != 2) 

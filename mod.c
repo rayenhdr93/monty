@@ -5,7 +5,7 @@
 *@line_number: file's line number
 *Return : nothing
 **/
-void modt(stack_t **stack, unsigned int line_number)
+void modd(stack_t **stack, unsigned int line_number)
 {
     int x = 0;
 	stack_t *tmp = NULL;
