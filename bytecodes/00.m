@@ -1,5 +1,5 @@
 push 72
-push 128
+push -1
 push 110
 push 111
 push 116

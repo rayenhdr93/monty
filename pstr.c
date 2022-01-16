@@ -8,13 +8,17 @@
 void pstr(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 {
     stack_t *tmp = NULL;
+
     tmp = (*stack);
     while (tmp)
 	{
-		if (tmp->n <= 0 || tmp->n > 127)
-			break;
-		putchar((char) tmp->n);
+		if ((tmp->n < 0) || (tmp->n > 127))
+        {
+            putchar('\n');
+			exit(0);
+        }
+        putchar((char) tmp->n);
 		tmp = tmp->next;
 	}
-	putchar('\n');
+    putchar('\n');
 }
