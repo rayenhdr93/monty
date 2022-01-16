@@ -8,7 +8,6 @@
 void divvv(stack_t **stack, unsigned int line_number)
 {
     int x = 0;
-	stack_t *tmp = NULL;
 
 	if (!((*stack) && (*stack)->next))
 	{
@@ -16,8 +15,7 @@ void divvv(stack_t **stack, unsigned int line_number)
 		free_z(*stack);
 		exit(EXIT_FAILURE);
 	}
-    tmp = (*stack)->next;
-    if ((tmp->n == 0) || ((*stack)->n == 0))
+    if ((((*stack)->next->n) == 0) || ((*stack)->n == 0))
     { 
         fprintf(stderr, "L%d: division by zero\n", line_number);
 		free_z(*stack);
@@ -26,5 +24,4 @@ void divvv(stack_t **stack, unsigned int line_number)
     x += ((*stack)->next->n) / ((*stack)->n);
 	pop(stack, line_number);
 	(*stack)->n = x;
-	
 }
