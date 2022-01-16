@@ -4,6 +4,8 @@ char *toke1(char *s)
 	int i = 0, found = 0;
 	while (s)
 	{
+		if (s[i] == '#')
+			return ("#");
 		if (!((s[i] >= 97) && (s[i] <= 122)))
 		{
 			if (found == 1)

@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 								{"div", divvv},
 								{"mul", mult},
 								{"mod", modd},
+								{"#", nooo},
 								{NULL, NULL}};
 
 	if (argc != 2) 
@@ -50,6 +51,7 @@ int main(int argc, char *argv[])
 			break;
 		sx = toke2(s);
 		sa = toke1(s);
+		if (sa)
 		if ((sx == 6666 && strcmp(sa, st_fn[0].opcode) == 0))
 		{
 			fprintf(stderr, "L%i: usage: push integer\n", j);
