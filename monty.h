@@ -44,6 +44,7 @@ void mult(stack_t **stack, unsigned int line_number);
 void modd(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void nooo(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_cnt);
 char *_itoa(int n);
 stack_t *add_fun(stack_t **head, const int n);
 char *toke1(char *s);
