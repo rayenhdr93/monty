@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 								{"mod", modd},
 								{"#", nooo},
 								{"pchar", pchar},
+								{"pstr", pstr},
 								{NULL, NULL}};
 
 	if (argc != 2) 
