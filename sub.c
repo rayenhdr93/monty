@@ -15,7 +15,7 @@ void sub(stack_t **stack, unsigned int line_number)
 		free_z(*stack);
 		exit(EXIT_FAILURE);
 	}
-    x += (*stack)->n - (*stack)->next->n;
+    x += (*stack)->next->n - (*stack)->n;
 	pop(stack, line_number);
 	(*stack)->n = x;
 }
