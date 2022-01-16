@@ -32,7 +32,7 @@ int toke2(char *s)
 
 	while (i < strlen(s))
 	{
-		if ((s[i] >= 48) && (s[i] <= 57))
+		if (((s[i] >= 48) && (s[i] <= 57)) || (s[i] == '-'))
 		{
 			found = 1;
 			s1[j] = s[i];
