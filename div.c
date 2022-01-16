@@ -23,8 +23,8 @@ void divvv(stack_t **stack, unsigned int line_number)
 		free_z(*stack);
 		exit(EXIT_FAILURE);
     }
-    x += (*stack)->n;
-	free(*stack);
-    (*stack) = tmp;
-	(*stack)->prev = NULL;
+    x += ((*stack)->next->n) / ((*stack)->n);
+	pop(stack, line_number);
+	(*stack)->n = x;
+	
 }
