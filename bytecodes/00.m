@@ -1,3 +1,10 @@
 push 1
-#pall
+push 2
+push 3
+push 4
+swap
+pop
+add
+push 1
+sub
 pall
